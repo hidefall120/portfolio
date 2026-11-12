@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Portfolio | Hide</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>PORTFOLIO</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="about">About</a>
+          </li>
+          <li>
+            <a href="Skills">Skills</a>
+          </li>
+          <li>
+            <a href="Works">Works</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="about">
+        <h2>ABOUT ME</h2>
+        <p>NAME</p>
+        <p>杉野 英明 / Hideaki Sugino</p>
+        <p>BIRTH DAY</p>
+        <p>2010年1月20日</p>
+        <p>AFFILIATION</p>
+        <p>大阪公立大学工業高等専門学校 知能情報コース2年</p>
+        <p>高専で情報工学を専門に学んでいます．</p>
+        <p>Email</p>
+        <p>rd25080u@st.omu.ac.jp</p>
+        <p><a href="">GitHub</a></p>
+      </section>
+      <section id="Skills">
+        <h2>SKILLS</h2>
+        <button onclick="document.querySelector('#detail1').showModal()">
+          Python
+        </button>
+        <dialog id="detail1">
+          <button class="close-button" onclick="this.closest('dialog').close()">閉じる</button>
+          <h3>Python</h3>
+          <p>最も使用頻度の高い言語です．</p>
+        </dialog>
+        <button onclick="document.querySelector('#detail2').showModal()">
+          HTML/CSS
+        </button>
+        <dialog id="detail2">
+          <button class="close-button" onclick="this.closest('dialog').close()">閉じる</button>
+          <h2>HTML/CSS</h2>
+          <p>ここに作品2の説明を書きます。</p>
+        </dialog>
+        <dialog id="detail3">
+          <button class="close-button" onclick="this.closest('dialog').close()">閉じる</button>
+          <h2>C++</h2>
+          <p>ここに作品3の説明を書きます。</p>
+        </dialog>
+      </section>
+      <section id="Works">
+        <h2>WORKS</h2>
+        <p>ポーカー</p>
+        <p>Google Colubで作成した，オリジナルのポーカーゲームです．</p>
+        <p>牛舎みまもりアプリ</p>
+        <p>開発中</p>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <p>© 2026 Hide</p>
+      </div>
+    </footer>
+    <script>
+      document.querySelectorAll("dialog").forEach((dialog) => {
+        dialog.addEventListener("click", (event) => {
+          if (event.target === dialog) {
+            dialog.close();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
