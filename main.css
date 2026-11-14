@@ -35,7 +35,6 @@ h2 {
   font-size: 200%;
   letter-spacing: 0.05em;
   font-weight: normal;
-  padding: 0 0 0 1.5em;
   border-bottom: 3px solid var(--theme-color-2);
 }
 
@@ -91,6 +90,9 @@ ul li::before {
   content: "\f816";
 }
 
+footer{
+  text-align:center;
+}
 button {
   padding: 10px 16px;
   margin: 8px;
