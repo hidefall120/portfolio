@@ -37,7 +37,7 @@
           <div class="about-row">
             <p class="about-label">AFFILIATION</p>
             <div class="about-value">
-              <p>大阪公立大学工業高等専門学校 知能情報コース2年</p>
+              <p>大阪公立大学工業高等専門学校 知能情報コース2年 水泳部</p>
               <p>高専で情報工学を専門に学んでいます．</p>
             </div>
           </div>
@@ -63,33 +63,88 @@
             <p>最も使用頻度の高い言語です．</p>
           </dialog>
           <button onclick="document.querySelector('#detail2').showModal()">
-            HTML/CSS
+            Arduino
           </button>
           <dialog id="detail2">
             <button class="close-button" onclick="this.closest('dialog').close()">x</button>
-            <h3>HTML/CSS</h3>
-            <p>本ポートフォリオの作成に用いました．</p>
+            <h3>Arduino</h3>
+            <p>マイクロコンピュータの実験実習等で使用しています．</p>
           </dialog>
           <button onclick="document.querySelector('#detail3').showModal()">
-            C++
+            HTML/CSS
           </button>
           <dialog id="detail3">
             <button class="close-button" onclick="this.closest('dialog').close()">x</button>
-            <h3>C++</h3>
-            <p>マイコン実習等で使用しています．</p>
+            <h3>HTML/CSS</h3>
+            <p>本ポートフォリオの作成に使用しました．</p>
+          </dialog>
+          <button onclick="document.querySelector('#detail4').showModal()">
+            GitHub
+          </button>
+          <dialog id="detail4">
+            <button class="close-button" onclick="this.closest('dialog').close()">x</button>
+            <h3>GitHub</h3>
+            <p>作品の公開や管理に使用しています．</p>
+          </dialog>
+          <button onclick="document.querySelector('#detail5').showModal()">
+            VSCode
+          </button>
+          <dialog id="detail5">
+            <button class="close-button" onclick="this.closest('dialog').close()">x</button>
+            <h3>VSCode</h3>
+            <p>授業や個人で制作するときのメインエディタとして使っています．</p>
+          </dialog>
+          <button onclick="document.querySelector('#detail5').showModal()">
+            Deeds-DCS
+          </button>
+          <dialog id="detail5">
+            <button class="close-button" onclick="this.closest('dialog').close()">x</button>
+            <h3>Deeds-DCS</h3>
+            <p>論理回路の設計や，動作の確認に使用しています．</p>
+          </dialog>
+          <button onclick="document.querySelector('#detail6').showModal()">
+            Tinkercad
+          </button>
+          <dialog id="detail6">
+            <button class="close-button" onclick="this.closest('dialog').close()">x</button>
+            <h3>Tinkercad</h3>
+            <p>マイクロコンピュータの回路設計やシミュレーションに使用しました．</p>
           </dialog>
         </div>
       </section>
       <section id="Works">
         <h2>WORKS</h2>
-        <p>ポーカー</p>
-        <p>Google Colabで作成した，オリジナルのポーカーゲームです．</p>
-        <p>牛舎みまもりアプリ</p>
-        <p>現在開発中</p>
+        <div class="works-list">
+          <article class="work-card">
+            <h3>ポーカー</h3>
+            <p class="work-description">Google Colabで作成した，オリジナルのポーカーゲームです．</p>
+            <p class="work-tag">Python</p>
+            <div class="work-images">
+              <img src="rule.png" alt="基本的なルール">
+              <img src="role.png" alt="役の強さ">
+              <img src="execution1.png" alt="実行中の画面➀">
+              <img src="execution2.png" alt="実行中の画面➁">
+            </div>
+            <a class="work-link" href="ここに作品のURL" target="_blank" rel="noopener">
+              ポーカーはこちらから
+            </a>
+          </article>
+          <article class="work-card">
+            <h3>牛舎みまもりアプリ</h3>
+            <p class="work-description">現在開発中</p>
+            <p class="work-tag">開発中</p>
+          </article>
+        </div>
+        <dialog id="image-modal" class="image-modal">
+          <button type="button" class="image-modal-close" aria-label="閉じる">
+            x
+          </button>
+          <img id="image-modal-photo" src="" alt="">
+        </dialog>
       </section>
     </main>
     <footer>
-      <div >
+      <div>
         <p>© 2026 Hide</p>
       </div>
     </footer>
@@ -100,6 +155,24 @@
             dialog.close();
           }
         });
+      });
+      const imageModal = document.querySelector("#image-modal");
+      const modalPhoto = document.querySelector("#image-modal-photo");
+      const closeButton = document.querySelector(".image-modal-close");
+      document.querySelectorAll(".work-images img").forEach((image) => {
+        image.addEventListener("click", () => {
+          modalPhoto.src = image.src;
+          modalPhoto.alt = image.alt;
+          imageModal.showModal();
+        });
+      });
+      closeButton.addEventListener("click", () => {
+        imageModal.close();
+      });
+      imageModal.addEventListener("click", (event) => {
+        if (event.target === imageModal) {
+          imageModal.close();
+        }
       });
     </script>
   </body>
