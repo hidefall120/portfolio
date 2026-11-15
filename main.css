@@ -3,9 +3,28 @@ html {
   -webkit-text-size-adjust: 100%;
   font-family: "Orbitron", sans-serif;
   padding:40px;
-  --theme-color-1: #f50;
-  --theme-color-2: #fc3;
+  --theme-color-1: rgb(0, 2, 125);
+  --theme-color-2: rgb(0, 136, 167);
   color: #454545;
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100px;
+  padding: 0 28px;
+  box-sizing: border-box;
+  background: rgba(80, 113, 170, 0.78);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 body {
@@ -16,39 +35,73 @@ body {
   max-width: 980px;
   margin: 2em auto;
   padding: 0px 30px;
+  padding-top: 70px;
 }
 
 h1 {
   position: relative;
   text-align: center;
-  font-size: 280%;
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  font-weight: bold;
+  letter-spacing: 0.12em;
   padding: 0.2em 0.5em;
-  letter-spacing: 0.1em;
-  text-shadow: #fff 2px 0, #fff -2px 0, #fff 0 -2px, #fff 0 2px, #fff 2px 2px,
-    #fff -2px 2px, #fff 2px -2px, #fff -2px -2px, #fff 1px 2px, #fff -1px 2px,
-    #fff 1px -2px, #fff -1px -2px, #fff 2px 1px, #fff -2px 1px, #fff 2px -1px,
-    #fff -2px -1px, rgba(0, 0, 0, 0.5) 3px 3px 3px
+  text-shadow: 0 0 10px rgba(220, 235, 255, 0.8);
 }
 
 h2 {
   position: relative;
-  font-size: 200%;
+  font-size: 250%;
   letter-spacing: 0.05em;
   font-weight: normal;
+  display: inline-block;
+  width: fit-content;
   border-bottom: 3px solid var(--theme-color-2);
 }
 
-img {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 20px;
+.about-box {
+  max-width: 800px;
+  margin: 16px auto;
+  padding: 18px 24px;
+  border: 1px solid rgba(114, 187, 255, 0.5);
+  border-radius: 12px;
+  background: rgba(114, 187, 255, 0.12);
 }
 
-strong {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 125%;
-  padding: 0 0.2em;
-  color: var(--theme-color-1);
+.about-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 14px 0;
+}
+
+.about-row + .about-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.about-label {
+  color:#6f6f6f;
+  flex: 0 0 130px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+}
+
+.about-value {
+  flex: 1;
+}
+
+.snav {
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.snav a:hover {
+  color: #bcecff;
+  text-shadow: 0 0 10px rgba(188, 236, 255, 0.9);
 }
 
 a {
@@ -111,6 +164,91 @@ dialog::backdrop {
   background: #0006;
 }
 
+.skill-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#Skills button {
+  padding: 12px 24px;
+  border: 2px solid #272c61;
+  border-radius: 12px;
+  background-color: rgba(0, 5, 58, 0.12);
+  color: #353b87;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#Skills button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+#Skills button:focus-visible {
+  outline: 3px solid #bcecff;
+  outline-offset: 3px;
+}
+
+#Skills dialog button {
+  padding: 7px 14px;
+  border: 2px solid #272c61;
+  border-radius: 12px;
+  background-color: rgba(0, 5, 58, 0.12);
+  color: #353b87;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#Skills dialog button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+#Skills dialog button:focus-visible {
+  outline: 3px solid #bcecff;
+  outline-offset: 3px;
+}
+
 .close-button {
   float: right;
+}
+
+@media (max-width: 600px) {
+  header {
+    min-height: 76px;
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .about-box {
+    padding: 12px 16px;
+  }
+
+  .about-row {
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .about-label {
+    flex-basis: 95px;
+  }
+
+  .snav {
+    gap: 18px;
+  }
+
+  .site-nav a {
+    font-size: 0.85rem;
+  }
+
+  body {
+    padding-top: 100px;
+  }
 }
